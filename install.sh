@@ -2,7 +2,7 @@
 
 KLIPPER_PATH="${HOME}/klipper"
 KLIPPY_ENV_PATH="${HOME}/klippy-env"
-INSTALL_PATH="${HOME}/klipper-toolchanger-easy"
+INSTALL_PATH="${HOME}/ktc_swap"
 CONFIG_PATH="${HOME}/printer_data/config"
 
 set -eu
@@ -29,7 +29,7 @@ function check_download {
 
     if [ ! -d "${INSTALL_PATH}" ]; then
         echo "[DOWNLOAD] Downloading repository..."
-        if git -C $installdirname clone https://github.com/jwellman80/klipper-toolchanger-easy.git $installbasename; then
+        if git -C $installdirname clone https://github.com/Richhe01/ktc-swap.git $installbasename; then
             chmod +x ${INSTALL_PATH}/install.sh
             printf "[DOWNLOAD] Download complete!\n\n"
         else
@@ -70,7 +70,7 @@ function z_probe_on_shuttle {
     echo "[INSTALL] Z Probe on Shuttle"
 
     cp -n "${INSTALL_PATH}"/examples/easy-additions/user-configs/tools/probe_on_shuttle/* "${CONFIG_PATH}"/toolchanger/tools
-    ln -sfn "${INSTALL_PATH}"/examples/easy-additions/user-configs/toolchanger-include_scanner.cfg "${CONFIG_PATH}"/toolchanger/readonly-configs/toolchanger-include.cfg
+    cp -n "${INSTALL_PATH}"/examples/easy-additions/user-configs/toolchanger-include_scanner.cfg "${CONFIG_PATH}"/toolchanger/toolchanger-include.cfg # made include file editable
 }
 
 function link_extension {
@@ -87,9 +87,9 @@ function do_shared_config {
     ln -sfn "${INSTALL_PATH}"/examples/easy-additions/toolchanger.cfg "${CONFIG_PATH}"/toolchanger/readonly-configs
     ln -sfn "${INSTALL_PATH}"/examples/easy-additions/homing.cfg "${CONFIG_PATH}"/toolchanger/readonly-configs
     ln -sfn "${INSTALL_PATH}"/examples/easy-additions/calibrate-offsets.cfg "${CONFIG_PATH}"/toolchanger/readonly-configs
-    ln -sfn "${INSTALL_PATH}"/examples/easy-additions/toolchanger-macros.cfg "${CONFIG_PATH}"/toolchanger/readonly-configs
     ln -sfn "${INSTALL_PATH}"/examples/easy-additions/crash-detection.cfg "${CONFIG_PATH}"/toolchanger/readonly-configs
 
+    cp -n "${INSTALL_PATH}"/examples/easy-additions/toolchanger-macros.cfg "${CONFIG_PATH}"/toolchanger # made macros editable
     cp -n "${INSTALL_PATH}"/examples/easy-additions/user-configs/toolchanger-config.cfg "${CONFIG_PATH}"/toolchanger
 }
 
