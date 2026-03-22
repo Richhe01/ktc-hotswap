@@ -2,7 +2,7 @@
 
 KLIPPER_PATH="${HOME}/klipper"
 KLIPPY_ENV_PATH="${HOME}/klippy-env"
-INSTALL_PATH="${HOME}/ktc_swap"
+INSTALL_PATH="${HOME}/ktc_hotswap"
 CONFIG_PATH="${HOME}/printer_data/config"
 
 set -eu
@@ -29,7 +29,7 @@ function check_download {
 
     if [ ! -d "${INSTALL_PATH}" ]; then
         echo "[DOWNLOAD] Downloading repository..."
-        if git -C $installdirname clone https://github.com/Richhe01/ktc-swap.git $installbasename; then
+        if git -C $installdirname clone https://github.com/Richhe01/ktc-hotswap.git $installbasename; then
             chmod +x ${INSTALL_PATH}/install.sh
             printf "[DOWNLOAD] Download complete!\n\n"
         else
