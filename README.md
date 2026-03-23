@@ -34,7 +34,7 @@ Running `install.sh` multiple times is a safe opearation, provided you follow th
 ```
 cd ~/
 git clone https://github.com/Richhe01/ktc-hotswap.git
-cd ~/ktc-hotswap
+cd ~/ktc_hotswap
 ./install.sh
 ```
 
