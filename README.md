@@ -33,8 +33,8 @@ This script does the following:
 Running `install.sh` multiple times is a safe opearation, provided you follow the instructions below about configuration.
 ```
 cd ~/
-git clone https://github.com/jwellman80/klipper-toolchanger-easy.git
-cd ~/klipper-toolchanger-easy
+git clone https://github.com/Richhe01/ktc-hotswap.git
+cd ~/ktc-hotswap
 ./install.sh
 ```
 
