@@ -2,7 +2,7 @@
 
 KLIPPER_PATH="${HOME}/klipper"
 KLIPPY_ENV_PATH="${HOME}/klippy-env"
-INSTALL_PATH="${HOME}/ktc_hotswap"
+INSTALL_PATH="${HOME}/ktc-hotswap"
 CONFIG_PATH="${HOME}/printer_data/config"
 
 set -eu
